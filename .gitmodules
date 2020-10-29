@@ -1,0 +1,4 @@
+[submodule "third_party/tensor"]
+	path = third_party/tensor
+	url = https://github.com/dawidkski/tesor.git
+
