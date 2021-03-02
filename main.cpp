@@ -1,19 +1,19 @@
 #include <tensor/ts.hpp>
 
-auto str(ts::Matrix &) -> std::string;
+auto str(ts::MatrixF &) -> std::string;
 
 auto main() -> int
 {
-    ts::Matrix A = {
+    ts::MatrixF A = {
         {3, 1, 3},
         {1, 5, 9},
     };
-    ts::Matrix B = {
+    ts::MatrixF B = {
         {3, 1},
         {1, 5},
         {2, 6}
     };
-    ts::Matrix C = ts::dot(A, B);
+    ts::MatrixF C = ts::dot(A, B);
 
     std::cout << "A = " << std::endl << str(A) << std::endl;
     std::cout << "B = " << std::endl << str(B) << std::endl;
@@ -22,11 +22,11 @@ auto main() -> int
     return 0;
 }
 
-auto str(ts::Matrix & m) -> std::string {
+auto str(ts::MatrixF & m) -> std::string {
     std::ostringstream ss;
-    for (int i = 0; i < m.dimensions()[0]; i++) {
+    for (int i = 0; i < m.shape(0); i++) {
         ss << " | ";
-        for (int j = 0; j < m.dimensions()[1]; j++) {
+        for (int j = 0; j < m.shape(1); j++) {
             ss << m(i, j) << " ";
         }
         ss << " | " << std::endl;
